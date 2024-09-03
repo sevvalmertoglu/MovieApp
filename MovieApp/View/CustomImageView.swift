@@ -18,11 +18,13 @@ struct CustomImageView: View {
     }
     
     var body: some View {
-        if let data = self.imageDownloaderClient.downloadedImage {
-            return Image(uiImage: UIImage(data: data)!)
+        if let data = self.imageDownloaderClient.downloadedImage,
+           let uiImage = UIImage(data: data) {
+            return Image(uiImage: uiImage)
                 .resizable()
         } else {
             return Image("placeholder")
+                .resizable()
         }
     }
 }

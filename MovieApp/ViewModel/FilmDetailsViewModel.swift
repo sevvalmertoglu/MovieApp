@@ -28,6 +28,11 @@ class FilmDetailViewModel : ObservableObject {
         }
     }
     
+    func starRating(from rating: Double) -> String {
+        let fullStars = Int(rating / 2)
+        return String(repeating: "★", count: fullStars) + String(repeating: "☆", count: 5 - fullStars)
+    }
+    
 }
 
 struct FilmDetailsViewModel {
@@ -63,6 +68,18 @@ struct FilmDetailsViewModel {
     
     var plot : String {
         detail.plot
+    }
+    
+    var imdbRating : String {
+        detail.imdbRating
+    }
+    
+    var genre : String {
+        detail.genre
+    }
+    
+    var runtime : String {
+        detail.runtime
     }
 }
 

@@ -21,6 +21,7 @@ struct FilmDetails : Codable {
     let metascore : String
     let imdbRating : String
     let imdbId : String
+    let runtime : String
     
     private enum CodingKeys : String, CodingKey {
         case title = "Title"
@@ -35,5 +36,6 @@ struct FilmDetails : Codable {
         case metascore = "Metascore"
         case imdbRating = "imdbRating"
         case imdbId = "imdbID"
+        case runtime = "Runtime"
     }
 }

@@ -14,6 +14,10 @@ class FilmListViewModel : ObservableObject {
     
     let downloaderClient = DownloaderClient()
     
+    init() {
+        searchFilms(filmName: "Titanic") // Initially, the results should display "Titanic"
+    }
+    
     func searchFilms(filmName : String) {
         downloaderClient.downloadFilms(search: filmName) { result in
             switch result {
