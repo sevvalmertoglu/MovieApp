@@ -16,26 +16,28 @@ struct FilmListView: View {
     }
     
     var body: some View {
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
         NavigationView {
             VStack {
                 List(filmListViewModel.movies, id: \.imdbId) { film in
                     NavigationLink(destination: DetailView(imdbId: film.imdbId)
                         .navigationBarBackButtonHidden(true),
-                        label: {
-                            HStack {
-                                CustomImageView(url: film.poster)
-                                    .frame(width: 90, height: 130)
+                                   label: {
+                        HStack {
+                            CustomImageView(url: film.poster)
+                                .frame(width: 90, height: 130)
                             
-                                VStack(alignment: .leading) {
-                                    Text(film.title)
-                                        .font(.title3)
-                                        .bold()
+                            VStack(alignment: .leading) {
+                                Text(film.title)
+                                    .font(.title3)
+                                    .bold()
                                 
-                                    Text(film.year)
-                                        .foregroundColor(.gray)
-                                }
+                                Text(film.year)
+                                    .foregroundColor(.gray)
                             }
-                        })
+                        }
+                    })
                 }
                 .navigationTitle(Text("Film List"))
                 .searchable(text: $searchFilm, prompt: "Search Films")
@@ -44,6 +46,7 @@ struct FilmListView: View {
                 }
             }
         }
+    }
     }
 }
 
